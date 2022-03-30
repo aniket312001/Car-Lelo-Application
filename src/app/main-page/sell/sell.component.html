@@ -1,0 +1,96 @@
+
+<ion-content>
+  <ion-card>
+
+
+    <form [formGroup]="formValue" (ngSubmit)="onSubmit()">
+
+      <ion-item>
+        <ion-label position="floating">Car Name</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Model Number</ion-label>
+        <ion-input formControlName="model"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">price</ion-label>
+        <ion-input formControlName="price"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Mileage</ion-label>
+        <ion-input formControlName="mileage" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Engine</ion-label>
+        <ion-input formControlName="engine" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Seating Capacity</ion-label>
+        <ion-input formControlName="seating_capacity" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Fuel Type</ion-label>
+        <ion-input formControlName="fuel_type" ></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating">vehicle Type</ion-label> <!--new or old-->
+        <ion-input formControlName="car_type" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">location</ion-label>
+        <ion-input formControlName="location" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">launched year</ion-label>
+        <ion-input formControlName="launched_year" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">year_Used</ion-label>
+        <ion-input formControlName="year_used" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Registration No</ion-label>
+        <ion-input formControlName="registration_number" ></ion-input>
+      </ion-item>
+
+      <!-- 3 image  -->
+
+      <ion-item>
+        <input id="inputFileToLoad1" type="file" (change)="change1('img1')" />
+      </ion-item>
+
+      <ion-item>
+        <input id="inputFileToLoad2" type="file" (change)="change2('img2')" />
+      </ion-item>
+
+      <ion-item>
+        <input id="inputFileToLoad3" type="file" (change)="change3('img3')" />
+      </ion-item>
+
+
+      <ion-item>
+        <ion-button color="primary" type="submit" >Submit</ion-button>
+      </ion-item>
+
+
+    </form>
+
+
+
+
+  </ion-card>
+</ion-content>
+

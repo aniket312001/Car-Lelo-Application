@@ -1,0 +1,35 @@
+
+<ion-content>
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start" >
+        <!-- <ion-back-button defaultHref="/main-page/chat"></ion-back-button> -->
+        <!-- <ion-button (click)="clickme()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button> -->
+
+        <ion-back-button defaultHref=""></ion-back-button>
+
+      </ion-buttons>
+      <ion-title *ngIf="userData" slot="start">{{userData.username}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <!-- <ion-item *ngIf="userData">
+    <h1 style="text-align: center;">{{userData.username}}</h1>
+  </ion-item> -->
+
+  <div class="chatarea">
+    <div *ngFor="let i of data">
+      <!-- <h1 [ngStyle]="{ 'text-align':i.includes('-')? 'left':'right' }" >{{i}}</h1> -->
+      <h1 [ngStyle]="{ 'text-align':i.senderId === myId ? 'right':'left' }"  > <span> {{i.msg}}</span></h1>
+
+    </div>
+    <div #target></div>
+  </div>
+
+
+  <ion-input placeholder="type message here" [(ngModel)]="value" (keyup.enter)="onEnter()"></ion-input>
+</ion-content>

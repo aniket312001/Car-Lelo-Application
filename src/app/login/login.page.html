@@ -1,0 +1,77 @@
+<!-- <ion-header translucent="true">
+  <ion-toolbar collapse="condense">
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form [formGroup]="formValue" (ngSubmit)="onSubmit()">
+
+      <ion-item>
+
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="primary" type="submit">Login</ion-button>
+
+        <small>Don't have a account? <a routerLink="/register">Register</a></small>
+
+
+      </ion-item>
+    </form>
+
+  </ion-card>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formValue" (ngSubmit)="onSubmit()">
+
+    <ion-item color="newcolor">
+
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item color="newcolor">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" style="margin-top: 33px;" [disabled]="!formValue.valid" >Sign In</ion-button>
+        <!-- <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a> -->
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <br><br><br>
+  <span class="divider line one-line">or</span>
+
+  <div class="ion-text-center " style="padding: 44px;">
+
+    <span class="already">Sign in With Google</span>
+    <br>
+
+    <ion-button [routerLink]="['/login']"  color="danger"><ion-icon name="logo-google"></ion-icon></ion-button>
+  </div>
+
+</ion-content>

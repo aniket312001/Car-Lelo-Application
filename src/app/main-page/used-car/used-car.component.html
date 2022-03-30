@@ -1,0 +1,28 @@
+<ion-content>
+
+
+
+  <ion-card>   <!--Take data from Json -->
+    <ion-card-header>
+     <h1> Used Car in India</h1>
+    </ion-card-header>
+    <ion-card-content>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dignissimos provident sapiente rem, dolorem quos explicabo numquam eos error blanditiis commodi voluptates ipsum animi fugit quaerat inventore mollitia saepe assumenda minima ad maiores totam consequatur accusantium eum? Sed officiis adipisci quaerat culpa nisi pariatur!
+    </ion-card-content>
+  </ion-card>
+
+
+  <ng-container  *ngFor="let i of latestData ">
+    <ion-card (click)="clickme(i._id)"  *ngIf="confirm(i)">
+      <img src={{i.img1}} />
+      <ion-card-header>
+        <ion-card-subtitle>{{i.model}}</ion-card-subtitle>
+        <ion-card-title>{{i.name}}</ion-card-title>
+        <h4>{{i.price |  currency:'INR'}}</h4>
+        <p>Ex-Showroom in {{i.location}}</p>
+      </ion-card-header>
+    </ion-card>
+ </ng-container>
+
+
+ </ion-content>

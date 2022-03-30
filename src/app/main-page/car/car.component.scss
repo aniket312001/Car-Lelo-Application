@@ -1,0 +1,33 @@
+ion-slides {
+  height: 30%;
+  padding: 0;
+  margin: 0;
+}
+
+ion-slide{
+  padding: 0;
+}
+
+img{
+  padding: 0%;
+  margin: 0%;
+  width: 100vh ;
+
+}
+
+ion-card{
+  img{
+    height: 180px;
+  }
+}
+
+.all-card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly
+}
+
+.brand img{
+  width: 87px;
+  height: 50px;
+}

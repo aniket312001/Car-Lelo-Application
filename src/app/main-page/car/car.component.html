@@ -1,0 +1,151 @@
+<ion-content>
+<!-- slider -->
+
+  <div class="ion-text-center">
+    <h1>New Cars</h1>
+  </div>
+
+  <ion-slides pager="true" [options]="slideOpts" >
+    <ion-slide>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo3KkGrZOuv8Z7Wezjbb41oC7inWKwf-zu2A&usqp=CAU" />
+    </ion-slide>
+    <ion-slide>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR71oVtr5c5ZqTH_I7BHQl9C5CNMfNpyHsfjQ&usqp=CAU" alt="">
+    </ion-slide>
+    <ion-slide>
+      <img src="https://cdni.autocarindia.com/utils/imageresizer.ashx?n=http://cms.haymarketindia.net/model/uploads/modelimages/Volkswagen-Taigun-061020211621.jpg&w=872&h=578&q=75&c=1" alt="">
+    </ion-slide>
+  </ion-slides>
+
+
+
+  <div>
+    <!-- <app-find-car-navbar></app-find-car-navbar> -->
+
+    <div class="ion-text-center">
+      <h1>Find The Right Car</h1>
+    </div>
+
+
+    <div class="all-card">
+
+      <ion-card (click)="searchme('petrol')">
+        <ion-card-content>
+          petrol
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="searchme('Diesel')">
+        <ion-card-content>
+          Deisel
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="searchme('electric')">
+        <ion-card-content>
+          Electic
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+          price
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="searchme('used')">
+        <ion-card-content>
+          old
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+
+    <div class="about">
+      <ion-card>
+        <ion-card-content>
+          <span style="color:red">About Us</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi animi alias soluta provident eveniet, magnam ipsam cupiditate deserunt illo. Fugit, quos impedit? Sit corporis autem ratione hic, voluptatum laudantium minus.
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+
+
+
+    <div class="ion-text-center">
+      <h1>Search New Car By Brand</h1>
+    </div>
+    <div class="brand all-card" >
+
+      <ion-card *ngFor="let item of carBrand">
+        <img src="{{item.img}}" />
+        <ion-card-content>
+          {{item.name}}
+        </ion-card-content>
+      </ion-card>
+
+
+
+    </div>
+
+  </div>
+
+
+
+  <div class="ion-text-center">
+    <h1>Latest Car</h1>
+  </div>
+
+  <ion-slides  [options]="slideOpts" style="height: 56% !important;"  *ngIf="latest_Car">
+    <ion-slide *ngFor="let i of latest_Car">
+
+      <ion-card (click)="clickme(i._id)">
+        <img src={{i.img1}} />
+        <ion-card-header>
+          <ion-card-subtitle>{{i.model}}</ion-card-subtitle>
+          <ion-card-title>{{i.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
+          Wisconsin Territory in 1836.
+        </ion-card-content>
+      </ion-card>
+
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-card class="ion-no-margin ion-margin-bottom">
+
+  <div class="ion-text-center">
+    <h1>Frequently Asked Question</h1>
+  </div>
+
+  <ion-accordion-group>
+
+    <ion-accordion value={{i}} *ngFor="let item of FAQData;let i = index">
+      <ion-item slot="header">
+        {{item.question}}
+      </ion-item>
+
+      <ion-list slot="content">
+        <ion-item>
+          {{item.answer}}
+        </ion-item>
+      </ion-list>
+    </ion-accordion>
+
+
+  </ion-accordion-group>
+
+</ion-card>
+
+    <ion-toolbar color="dark">
+      <div class="ion-text-center">
+        <p>All copyright reserved</p>
+      </div>
+    </ion-toolbar>
+
+
+</ion-content>
+

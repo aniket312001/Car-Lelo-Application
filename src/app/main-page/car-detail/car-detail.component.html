@@ -1,0 +1,91 @@
+<ion-content>
+
+<div *ngIf="car">
+
+  <ion-card >
+    <!-- <img src="https://cdni.autocarindia.com/utils/imageresizer.ashx?n=http://cms.haymarketindia.net/model/uploads/modelimages/Maruti-Suzuki-Swift-100320211204.jpg&w=872&h=578&q=75&c=1" /> -->
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <img src={{car.img1}} />
+      </ion-slide>
+      <ion-slide *ngIf="car.img2">
+        <img src={{car.img2}} alt="">
+      </ion-slide>
+      <ion-slide *ngIf="car.img3">
+        <img src={{car.img3}} alt="">
+      </ion-slide>
+    </ion-slides>
+
+
+    <ion-card-header>
+      <ion-card-subtitle>John</ion-card-subtitle>
+      <ion-card-title>{{car.name}}</ion-card-title>
+      <h4>{{car.price |  currency:'INR'}}</h4>
+      <p>Ex-Showroom in {{car.location}}</p>
+      <ion-button expand="block" fill="outline" (click)="clickme(car.userId)"  *ngIf="showChatBtn" >Chat</ion-button>
+      <ion-button expand="block" fill="outline"  *ngIf="! showChatBtn" >Update</ion-button>
+    </ion-card-header>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <h1>About</h1>
+    </ion-card-header>
+    <ion-card-content>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis fugit voluptatibus architecto quo in dolorem, tempore delectus modi error suscipit iusto eos voluptatem illo velit nesciunt est! Quae, soluta corporis?
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+
+      <agm-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"   >
+
+      <agm-marker *ngFor="let m of markers; let i = index"
+          (markerClick)="clickedMarker(m.label, i)"
+          [latitude]="m.lat"
+          [longitude]="m.lng"
+          [label]="m.label"
+          >
+
+        <agm-info-window>
+          <strong>Label: {{m.label}}</strong><br/>
+          <img class="w-img" src="https://www.remaxdoors.com/hubfs/2015_images/Blogging/new_car_showroom.jpg" alt="">
+          <strong>Latitude: {{m.lat}}</strong><br/>
+          <strong>Longitude: {{m.lng}}</strong>
+        </agm-info-window>
+
+      </agm-marker>
+
+    </agm-map>
+
+  </ion-card>
+
+
+
+
+  <ion-card>
+    <ion-card-header>
+      <h1>Specification</h1>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>Model - {{car.model}}</ion-item>
+        <ion-item>Mileage - {{car.mileage}}</ion-item>
+        <ion-item>Engine - {{car.engine}}cc</ion-item>
+        <ion-item>Fuel Type - {{car.fuel_type}}</ion-item>
+        <ion-item>Seat - {{car.seating_capacity}}</ion-item>
+        <ion-item>launched Year - {{car.launched_year}}</ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</div>
+
+</ion-content>
+

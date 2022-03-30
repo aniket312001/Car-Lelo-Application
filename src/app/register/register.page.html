@@ -1,0 +1,61 @@
+
+
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form  [formGroup]="formValue" (ngSubmit)="onSubmit()">
+
+    <ion-item color="newcolor">
+      <ion-label position="floating">User Name</ion-label>
+      <ion-input formControlName="username"></ion-input>
+    </ion-item>
+
+    <ion-item color="newcolor">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item color="newcolor">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item color="newcolor">
+      <ion-label position="floating">Address</ion-label>
+      <ion-input formControlName="address"></ion-input>
+    </ion-item>
+
+    <ion-item color="newcolor">
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input formControlName="phone"></ion-input>
+    </ion-item>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block" [disabled]="!formValue.valid" >Sign Up</ion-button>
+        <small>Already have a account? <a routerLink="/login">Login</a></small>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <br><br><br>
+  <span class="divider line one-line">or</span>
+
+  <div class="ion-text-center " style="padding: 44px;">
+
+    <span class="already">Sign in With Google</span>
+    <br>
+
+    <ion-button [routerLink]="['/login']"  color="primary" ><ion-icon name="logo-google"></ion-icon></ion-button>
+  </div>
+
+</ion-content>

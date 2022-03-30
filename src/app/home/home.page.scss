@@ -1,0 +1,57 @@
+ion-content{
+  // --ion-background-color:#e7e9e7;
+  --background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYJMWd3c20b0IxOwxz-rWc_qm0zuIxmoy5pg&usqp=CAU') no-repeat center center / cover;
+}
+
+div{
+  opacity: 9;
+
+
+}
+
+.divider {
+  display: flex;
+
+  &:before,
+  &:after {
+    content: "";
+    flex: 1;
+  }
+}
+
+.line {
+  align-items: center;
+  margin: 1em -1em;
+  color: #000000;
+
+  &:before,
+  &:after {
+    height: 1px;
+    margin: 0 1em;
+  }
+}
+
+.one-line {
+  &:before,
+  &:after {
+     background: #181717;
+  }
+}
+
+ion-button{
+  height: 48px;
+}
+
+.auth-form ion-grid,
+.auth-form ion-row {
+  padding-top: 90px;
+
+  height: 60%;
+  justify-content: center;
+}
+
+.already {
+  display: block;
+  text-align: center;
+  padding-bottom: 10px;
+}

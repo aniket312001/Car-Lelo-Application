@@ -1,0 +1,7 @@
+{
+  "name": "sell-car",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

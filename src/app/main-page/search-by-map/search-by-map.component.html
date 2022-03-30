@@ -1,0 +1,28 @@
+
+  <ion-card>
+
+    <agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom"
+    [disableDefaultUI]="false"   >
+
+    <agm-marker *ngFor="let m of allData; let i = index"
+        (markerClick)="clickedMarker(m.label, i)"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [label]="m.name"
+        >
+
+      <agm-info-window>
+        <strong>Car: {{m.name}}</strong><br/>
+        <img class="w-img" src={{m.img}} alt="" (click)="clickme(m.id)" >
+        <strong>Price: {{m.price |  currency:'INR'}}</strong><br/>
+
+      </agm-info-window>
+
+    </agm-marker>
+
+  </agm-map>
+
+</ion-card>
