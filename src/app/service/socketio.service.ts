@@ -14,7 +14,9 @@ export class SocketioService {
   constructor() {   }
 
   setupSocketConnection(id:any) {
-    this.socket = io(environment.SOCKET_ENDPOINT);
+    this.socket = io(environment.SOCKET_ENDPOINT,{transports: ['websocket', 'polling', 'flashsocket']});  // Check By Removing Socket EndPoint
+    // this.socket = io();
+
     this.socket.emit('create',id)
   }
 

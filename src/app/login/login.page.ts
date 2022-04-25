@@ -3,6 +3,8 @@ import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ToastController } from '@ionic/angular';
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,36 @@ export class LoginPage implements OnInit {
 
   formValue !: FormGroup;
 
-  constructor(private fb: FormBuilder,private service:UserService,private route: Router,public loadingController: LoadingController,public toastController: ToastController) { }
+  constructor(private fb: FormBuilder,private service:UserService,private route: Router,public loadingController: LoadingController,public toastController: ToastController) {
+    GoogleAuth.initialize()
+  }
+
+  async refresh(){
+    let resp = GoogleAuth.refresh()
+    console.log(resp)
+  }
+
+  async Oauth(){
+
+    let response = await GoogleAuth.signIn();
+    this.service.checklogin(response).subscribe(data=>{
+      console.log(data)
+      if(data.token){
+
+
+        localStorage.setItem('token',data.token)
+
+        localStorage.setItem('userId',data.user.id)
+        localStorage.setItem('name',data.user.name)
+        this.presentLoading()
+        this.route.navigate(['./main-page'])
+      } else {
+        this.presentToast(data);
+      }
+    },error=>{this.presentToast(error.message + "  "+ error.name )})
+  }
+
+
 
   ngOnInit() {
     this.formValue = this.fb.group({
@@ -47,10 +78,10 @@ export class LoginPage implements OnInit {
 
   onSubmit(){
     console.log(this.formValue.value);
-
+    // this.presentToast("hello");
     this.service.login(this.formValue.value).subscribe(data=>{
       console.log(data)
-
+      // this.presentToast("hello 2");
       if(data.token){
 
 
@@ -66,7 +97,7 @@ export class LoginPage implements OnInit {
       } else {
         this.presentToast(data);
       }
-    })
+    },error=>{this.presentToast(error.message + "  "+ error.name + "  "+ error.status + "  "+ error.statusText )})
   }
 
 }

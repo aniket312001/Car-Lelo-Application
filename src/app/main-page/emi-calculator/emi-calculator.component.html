@@ -1,28 +1,28 @@
 <ion-content>
   <ion-card>
+    <div class="margin55">
+      <ion-item color="xyz">
+        <ion-label position="floating">Amount</ion-label>
+        <ion-input type="number" [(ngModel)]="amount"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Amount</ion-label>
-      <ion-input type="number" [(ngModel)]="amount"></ion-input>
-    </ion-item>
+      <ion-item color="xyz">
+        <ion-label position="floating">Rate of Interset</ion-label>
+        <ion-input type="number" [(ngModel)]="rate"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Rate of Interset</ion-label>
-      <ion-input type="number" [(ngModel)]="rate"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Months</ion-label>
-      <ion-input type="number" [(ngModel)]="months"></ion-input>
-    </ion-item>
+      <ion-item color="xyz">
+        <ion-label position="floating">Months</ion-label>
+        <ion-input type="number" [(ngModel)]="months"></ion-input>
+      </ion-item>
 
 
-    <ion-card-content>
-      <h1>Total EMI is {{((amount/months) + (amount * (rate * 0.01))/months)  |  currency:'INR'}}</h1>
-      <br>
-      <h2>You Will Pay Extra {{(((amount/months) + (amount * (rate * 0.01))/months) )*months  - amount   |  currency:'INR'}}</h2>
+      <ion-card-content>
+        <h1>Total EMI is {{((amount/months) + (amount * (rate * 0.01))/months)  |  currency:'INR'}}</h1>
+        <br>
+        <h2>You Will Pay Extra {{(((amount/months) + (amount * (rate * 0.01))/months) )*months  - amount   |  currency:'INR'}}</h2>
 
-    </ion-card-content>
-
+      </ion-card-content>
+    </div>
   </ion-card>
 </ion-content>

@@ -1,0 +1,76 @@
+<!-- <div>
+  <h2>Support Us By Donating...</h2>
+
+  <div>
+    <button (click)="initializePayment(2)" >Paymant of $2</button>
+  </div>
+  <div>
+    <button (click)="initializePayment(25)" >Payment $25</button>
+  </div>
+  <div>
+    <button (click)="initializePayment(35)" >Payment of $35</button>
+  </div>
+</div> -->
+
+<ion-breadcrumbs>
+  <ion-breadcrumb routerLink="../">
+    Home
+  </ion-breadcrumb>
+  <ion-breadcrumb>
+    Support Us
+  </ion-breadcrumb>
+</ion-breadcrumbs>
+
+
+<ion-content>
+
+  <div class="ion-text-center">
+    <h1>Support Us By Donating...</h1>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+     <h1>Paymant of $5</h1>
+    </ion-card-header>
+    <ion-card-content>
+      We Appreciate you use our Application
+      <br><br>
+      <ion-button expand="block"  (click)="initializePayment(5)" >Pay</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+     <h1>Payment $25</h1>
+    </ion-card-header>
+    <ion-card-content>
+      We Appreciate you use our Application
+      <br><br>
+      <ion-button expand="block"  (click)="initializePayment(25)" >Pay</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+     <h1>Payment of $35</h1>
+    </ion-card-header>
+    <ion-card-content>
+      We Appreciate you use our Application
+      <br><br>
+      <ion-button expand="block"  (click)="initializePayment(35)" >Pay</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+<ion-toolbar color="dark">
+  <div class="ion-text-center">
+    <p>All copyright reserved</p>
+  </div>
+</ion-toolbar>
+
+
+ </ion-content>
+
+

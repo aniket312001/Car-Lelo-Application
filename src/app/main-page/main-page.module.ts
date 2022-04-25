@@ -1,3 +1,5 @@
+import { UpdateCarComponent } from './update-car/update-car.component';
+import { AnotherUserProfileComponent } from './another-user-profile/another-user-profile.component';
 import { SearchByMapComponent } from './search-by-map/search-by-map.component';
 import { TermAndConditionsComponent } from './term-and-conditions/term-and-conditions.component';
 import { FeedbackComponent } from './feedback/feedback.component';
@@ -36,6 +38,8 @@ import { MainPagePageRoutingModule } from './main-page-routing.module';
 import { MainPagePage } from './main-page.page';
 import { SellComponent } from './sell/sell.component';
 import { AgmCoreModule } from '@agm/core';
+import { PaymentGateWayComponent } from './payment-gate-way/payment-gate-way.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
 
@@ -48,9 +52,10 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCfAj2b7ZhU8BMujlnDodqHj_cyARd520c',
       libraries: ['places']
-    })
+    }),
+    Ng2SearchPipeModule // for filter
   ],
-  declarations: [MainPagePage,SellComponent,CarComponent,CarDetailComponent,ChatsComponent,CompareCarComponent,ElectricCarComponent,EmiCalculatorComponent,FindCarNavbarComponent,HomeScreenComponent,LatestCarComponent,OldCarComponent,PopularCarComponent,SearchbarComponent,SuggestCarComponent,UpcommingCarComponent,UsedCarComponent,SearchCarComponent,PersonalChatComponent,MycarComponent,SearchByPriceComponent,AboutComponent,CareerComponent,PrivacyPolicyComponent,ContactUsComponent,FeedbackComponent,TermAndConditionsComponent,SearchByMapComponent],
+  declarations: [MainPagePage,SellComponent,CarComponent,CarDetailComponent,ChatsComponent,CompareCarComponent,ElectricCarComponent,EmiCalculatorComponent,FindCarNavbarComponent,HomeScreenComponent,LatestCarComponent,OldCarComponent,PopularCarComponent,SearchbarComponent,SuggestCarComponent,UpcommingCarComponent,UsedCarComponent,SearchCarComponent,PersonalChatComponent,MycarComponent,SearchByPriceComponent,AboutComponent,CareerComponent,PrivacyPolicyComponent,ContactUsComponent,FeedbackComponent,TermAndConditionsComponent,SearchByMapComponent,PaymentGateWayComponent,AnotherUserProfileComponent,UpdateCarComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA]
 })
 export class MainPagePageModule {}

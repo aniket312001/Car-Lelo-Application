@@ -10,42 +10,59 @@
 </ion-header>
 
 <ion-content>
+<ion-card>
 
-  <form  [formGroup]="formValue" (ngSubmit)="onSubmit()">
+  <div class="margin55">
+    <form  [formGroup]="formValue" (ngSubmit)="onSubmit()">
 
-    <ion-item color="newcolor">
-      <ion-label position="floating">User Name</ion-label>
-      <ion-input formControlName="username"></ion-input>
-    </ion-item>
+      <ion-item color="newcolor">
+        <ion-label position="floating">User Name</ion-label>
+        <ion-input formControlName="username"></ion-input>
+      </ion-item>
+      <div *ngIf="formValue.get('username').invalid && (formValue.get('username').dirty ||formValue.get('username').touched )">
+        <small *ngIf="(formValue.get('username')).errors?.required" style="color: red; padding-left: 13px;">Username is required</small>
+      </div>
 
-    <ion-item color="newcolor">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input formControlName="email"></ion-input>
-    </ion-item>
+      <ion-item color="newcolor">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <div *ngIf="formValue.get('email').invalid && (formValue.get('email').dirty ||formValue.get('email').touched )">
+        <small *ngIf="(formValue.get('email')).errors?.required" style="color: red; padding-left: 13px;">Email is required</small>
+      </div>
 
-    <ion-item color="newcolor">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input formControlName="password" type="password"></ion-input>
-    </ion-item>
+      <ion-item color="newcolor">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+      <div *ngIf="formValue.get('password').invalid && (formValue.get('password').dirty ||formValue.get('password').touched )">
+        <small *ngIf="(formValue.get('password')).errors?.required" style="color: red; padding-left: 13px;">Password is required</small>
+      </div>
 
-    <ion-item color="newcolor">
-      <ion-label position="floating">Address</ion-label>
-      <ion-input formControlName="address"></ion-input>
-    </ion-item>
+      <ion-item color="newcolor">
+        <ion-label position="floating">Address</ion-label>
+        <ion-input formControlName="address"></ion-input>
+      </ion-item>
+      <div *ngIf="formValue.get('address').invalid && (formValue.get('address').dirty ||formValue.get('address').touched )">
+        <small *ngIf="(formValue.get('address')).errors?.required" style="color: red; padding-left: 13px;">Address is required</small>
+      </div>
 
-    <ion-item color="newcolor">
-      <ion-label position="floating">Phone</ion-label>
-      <ion-input formControlName="phone"></ion-input>
-    </ion-item>
+      <ion-item color="newcolor">
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input formControlName="phone"></ion-input>
+      </ion-item>
+      <div *ngIf="formValue.get('phone').invalid && (formValue.get('phone').dirty ||formValue.get('phone').touched )">
+        <small *ngIf="(formValue.get('phone')).errors?.required" style="color: red; padding-left: 13px;">Phone is required</small>
+      </div>
 
-
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="primary" expand="block" [disabled]="!formValue.valid" >Sign Up</ion-button>
-        <small>Already have a account? <a routerLink="/login">Login</a></small>
-      </ion-col>
-    </ion-row>
-  </form>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block" [disabled]="!formValue.valid" >Sign Up</ion-button>
+          <small>Already have a account? <a routerLink="/login">Login</a></small>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
 
   <br><br><br>
   <span class="divider line one-line">or</span>
@@ -55,7 +72,7 @@
     <span class="already">Sign in With Google</span>
     <br>
 
-    <ion-button [routerLink]="['/login']"  color="primary" ><ion-icon name="logo-google"></ion-icon></ion-button>
+    <ion-button (click)="Oauth()"  color="primary" ><ion-icon name="logo-google"></ion-icon></ion-button>
   </div>
-
+</ion-card>
 </ion-content>

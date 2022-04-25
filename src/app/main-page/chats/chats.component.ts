@@ -13,8 +13,10 @@ export class ChatsComponent implements OnInit {
 
   constructor(private socketService : SocketioService,private userService : UserService,private chatService: ChatsService ,private r1: Router) { }
 
-  value:""
+  value:string = ""
   user:any
+  // user2:any
+
 
   ngOnInit() {
     console.log("weuhgweughuiwghiwg")
@@ -23,13 +25,26 @@ export class ChatsComponent implements OnInit {
       data = data.sort((a:any, b:any) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
       console.log(data)
       this.user = data
+
+      let len = this.user.length
+
+      for(let i=0;i<len;i++) {
+        this.userService.getUserById(this.user[i].userId).subscribe(data=>{
+            this.user[i].imageUrl  = data.imageUrl ? data.imageUrl : "../../assets/76729750.jpg"
+
+        })
+      }
+
+
     })
+
+
   }
 
-  ionViewWillEnter(){
-    console.log("ppp")
-    this.ngOnInit()
-  }
+  // ionViewWillEnter(){
+  //   console.log("ppp")
+  //   this.ngOnInit()
+  // }
 
 
 
@@ -53,5 +68,17 @@ export class ChatsComponent implements OnInit {
   clickme(id:any){
     console.log(id)
     this.r1.navigate([`main-page/chat/${id}`])
+  }
+
+  confirm(name){
+    if(this.value == ''){
+      return true
+    } else {
+      if(name.includes(this.value)){
+        return true
+      } else {
+        false
+      }
+    }
   }
 }

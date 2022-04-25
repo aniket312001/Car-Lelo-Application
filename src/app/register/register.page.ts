@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { UserService } from '../service/user.service';
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 @Component({
   selector: 'app-register',
@@ -70,5 +71,26 @@ export class RegisterPage implements OnInit {
       }
     })
   }
+
+
+  async Oauth(){
+    let response = await GoogleAuth.signIn();
+    this.service.checklogin(response).subscribe(data=>{
+      console.log(data)
+      if(data.token){
+
+
+        localStorage.setItem('token',data.token)
+
+        localStorage.setItem('userId',data.user.id)
+        localStorage.setItem('name',data.user.name)
+        this.presentLoading()
+        this.route.navigate(['./main-page'])
+      } else {
+        this.presentToast(data);
+      }
+    },error=>{this.presentToast(error.message + "  "+ error.name )})
+  }
+
 
 }

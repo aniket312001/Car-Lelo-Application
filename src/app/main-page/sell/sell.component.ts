@@ -12,7 +12,7 @@ export class SellComponent implements OnInit {
   formValue !: FormGroup;
 
 
-  constructor(private fb:FormBuilder,private carService:CarService,public toastController: ToastController) { }
+  constructor(private fb:FormBuilder,private carService:CarService,public toastController: ToastController) {}
 
 
   ngOnInit() {

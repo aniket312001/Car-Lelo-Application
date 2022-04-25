@@ -1,6 +1,7 @@
 ion-content{
   // --ion-background-color:#e7e9e7;
-  --background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYJMWd3c20b0IxOwxz-rWc_qm0zuIxmoy5pg&usqp=CAU') no-repeat center center / cover;
+  --background: url("https://cdn.statusqueen.com/mobilewallpaper/thumbnail/widebody_huracan_-202.jpg") no-repeat center center / cover;
+  // --background: url('https://1.bp.blogspot.com/-GaVlbdJ2WAg/X_hmhaA8IcI/AAAAAAAACL4/vcojleyuhP8Oln8p767IzJftaWteqKEyQCLcBGAsYHQ/s1290/Screenshot_2021-01-08-19-31-30-417.jpeg') no-repeat center center / cover;
 }
 
 div{
@@ -34,7 +35,7 @@ div{
 .one-line {
   &:before,
   &:after {
-     background: #181717;
+     background: #000000;
   }
 }
 

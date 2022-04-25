@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './../../service/user.service';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { SocketioService } from 'src/app/service/socketio.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-personal-chat',
@@ -12,7 +13,7 @@ import { SocketioService } from 'src/app/service/socketio.service';
 export class PersonalChatComponent implements AfterViewInit,OnDestroy {
   @ViewChild('target') myDiv: ElementRef;
 
-  constructor(private socketService : SocketioService, private userService: UserService,private route :ActivatedRoute, private chatService:ChatsService, private r1: Router) { }
+  constructor(private socketService : SocketioService, private userService: UserService,private route :ActivatedRoute, private chatService:ChatsService, private r1: Router,public toastController: ToastController) { }
 
   value:""
   userData:any
@@ -32,6 +33,7 @@ export class PersonalChatComponent implements AfterViewInit,OnDestroy {
 
     this.userService.getUserById(this.route.snapshot.paramMap.get('id')).subscribe(data=>{
       this.userData = data
+      console.log(this.userData)
     })
 
 
@@ -40,11 +42,21 @@ export class PersonalChatComponent implements AfterViewInit,OnDestroy {
     // when message will come it will run
     this.socketService.socket.on('show', (msg:any) => {
       console.log('message: ' + msg);
+      this.presentToast(msg)
        this.getAllChats()
     });
 
   }
 
+  async presentToast(data:any) {
+    const toast = await this.toastController.create({
+      color: 'primary',
+      message: data,
+      duration: 2000,
+      position:"top",
+    });
+    toast.present();
+  }
 
   getAllChats(){
     // get all chats

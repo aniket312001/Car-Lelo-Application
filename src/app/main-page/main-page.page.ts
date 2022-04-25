@@ -12,10 +12,13 @@ export class MainPagePage implements OnInit {
   constructor(private menu: MenuController,private route: Router,public loadingController: LoadingController) { }
 
   ngOnInit() {
+    // this.menu.enable(true)
+
   }
   openFirst() {
     this.menu.enable(true, 'first');
     this.menu.open('first');
+    console.log("oen")
   }
 
   openEnd() {

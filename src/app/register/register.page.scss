@@ -2,10 +2,13 @@
 ion-content{
   // --ion-background-color:#e7e9e7;
 
-  --background: url('https://previews.123rf.com/images/saicle/saicle1509/saicle150900010/44651347-minimal-blue-tech-abstract-background-vector-design.jpg') no-repeat center center / cover;
+  --background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-IBYGax7wK-Ejts-swZTFR6UEy31FATe7-Q&usqp=CAU') no-repeat center center / cover;
 }
 
-
+ion-card{
+  background: transparent;
+  box-shadow: none;
+}
 
 .divider {
   display: flex;
@@ -34,4 +37,14 @@ ion-content{
   &:after {
      background: #a09d9d;
   }
+}
+
+
+.margin55{
+  margin: 35px;
+
+  .bottom{
+    margin-bottom: 34px;
+  }
+
 }

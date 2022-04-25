@@ -1,3 +1,93 @@
-<p>
-  compare-car works!
-</p>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="6">
+
+        <ng-container *ngIf="showList1">
+
+          <ion-searchbar [(ngModel)]="value1" ></ion-searchbar>
+
+          <ion-list>
+            <ng-container *ngFor="let data of carData | filter:value1">
+            <ion-item  (click)="openCard1(data._id)">
+                <ion-label>{{data.name}}</ion-label>
+                <ion-label>{{data.model}}</ion-label>
+
+              </ion-item>
+            </ng-container>
+          </ion-list>
+
+        </ng-container>
+
+        <ng-container *ngIf="!showList1  && firstCard">
+          <ion-card class="img">
+            <img src="{{firstCard.img1}}" alt="">
+          </ion-card>
+          <ion-card style="box-shadow: none;">
+
+                <ion-item> Price - {{firstCard.price}}</ion-item>
+                <ion-item>Location - {{firstCard.location}}</ion-item>
+                <ion-item>Car Type - {{firstCard.car_type}}</ion-item>
+                <ion-item>Model - {{firstCard.model}}</ion-item>
+                <ion-item>Mileage - {{firstCard.mileage}}</ion-item>
+                <ion-item>Engine - {{firstCard.engine}}cc</ion-item>
+                <ion-item>Fuel Type - {{firstCard.fuel_type}}</ion-item>
+                <ion-item>Seat - {{firstCard.seating_capacity}}</ion-item>
+                <ion-item>Launched Year - {{firstCard.launched_year}}</ion-item>
+                <ion-item>RNo. - {{firstCard.registration_number}}</ion-item>
+
+          </ion-card>
+          <ion-button expand="block" fill="outline" color="danger" (click)="reset1()">Reset</ion-button>
+        </ng-container>
+
+
+
+
+      </ion-col>
+
+      <ion-col size="6">
+
+        <ng-container *ngIf="showList2">
+
+          <ion-searchbar [(ngModel)]="value2" ></ion-searchbar>
+
+          <ion-list>
+            <ng-container *ngFor="let data of carData | filter:value2">
+            <ion-item  (click)="openCard2(data._id)">
+                <ion-label>{{data.name}}</ion-label>
+                <ion-label>{{data.model}}</ion-label>
+
+              </ion-item>
+            </ng-container>
+          </ion-list>
+
+        </ng-container>
+
+        <ng-container *ngIf="!showList2  && secondCard">
+          <ion-card class="img">
+            <img src="{{secondCard.img1}}" alt="">
+          </ion-card>
+          <ion-card style="box-shadow: none;">
+
+                <ion-item> Price - {{secondCard.price}}</ion-item>
+                <ion-item>Location - {{secondCard.location}}</ion-item>
+                <ion-item>Car Type - {{secondCard.car_type}}</ion-item>
+                <ion-item>Model - {{secondCard.model}}</ion-item>
+                <ion-item>Mileage - {{secondCard.mileage}}</ion-item>
+                <ion-item>Engine - {{secondCard.engine}}cc</ion-item>
+                <ion-item>Fuel Type - {{secondCard.fuel_type}}</ion-item>
+                <ion-item>Seat - {{secondCard.seating_capacity}}</ion-item>
+                <ion-item>Launched Year - {{secondCard.launched_year}}</ion-item>
+                <ion-item>RNo. - {{secondCard.registration_number}}</ion-item>
+
+          </ion-card>
+          <ion-button expand="block" fill="outline" color="danger" (click)="reset2()">Reset</ion-button>
+        </ng-container>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  </ion-content>

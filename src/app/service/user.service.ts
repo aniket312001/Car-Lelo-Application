@@ -8,22 +8,31 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   userID:any
-
+  mainURL = 'https://sellcar24hr.herokuapp.com/'
   constructor(private http:HttpClient) { }
 
   login(data:any):Observable<any>{
-    return this.http.post('http://localhost:3000/api/auth/login',data)
+    return this.http.post(`${this.mainURL}api/auth/login`,data)
   }
+
+  checklogin(data:any):Observable<any>{
+    return this.http.post(`${this.mainURL}api/auth/checklogin`,data)
+  }
+
   register(data:any):Observable<any>{
-    return this.http.post('http://localhost:3000/api/auth/register',data)
+    return this.http.post(`${this.mainURL}api/auth/register`,data)
   }
 
   getAllUser():Observable<any>{
-    return this.http.get<any>('http://localhost:3000/api/user')
+    return this.http.get<any>(`${this.mainURL}api/user`)
   }
 
   getUserById(id:any):Observable<any>{
-    return this.http.get<any>('http://localhost:3000/api/user/'+id)
+    return this.http.get<any>(`${this.mainURL}api/user/`+id)
+  }
+
+  updateUser(id:any,data:any):Observable<any>{
+    return this.http.put<any>(`${this.mainURL}api/user/`+id,data)
   }
 
 }

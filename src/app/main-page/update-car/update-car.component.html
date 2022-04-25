@@ -1,0 +1,188 @@
+
+<ion-content>
+  <ion-card *ngIf="car">
+
+    <div class="margin55">
+      <form [formGroup]="formValue" (ngSubmit)="onSubmit()">
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">Car Name</ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('name').invalid && (formValue.get('name').dirty ||formValue.get('name').touched )">
+            <small *ngIf="(formValue.get('name')).errors?.required" style="color: red; padding-left: 13px;">Name is required</small>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">Model Number</ion-label>
+            <ion-input formControlName="model"></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('model').invalid && (formValue.get('model').dirty ||formValue.get('model').touched )">
+            <small *ngIf="(formValue.get('model')).errors?.required" style="color: red; padding-left: 13px;">Model is required</small>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">price</ion-label>
+            <ion-input formControlName="price"></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('price').invalid && (formValue.get('price').dirty ||formValue.get('price').touched )">
+            <small *ngIf="(formValue.get('price')).errors?.required" style="color: red; padding-left: 13px;">Price is required</small>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">Mileage</ion-label>
+            <ion-input formControlName="mileage" ></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('mileage').invalid && (formValue.get('mileage').dirty ||formValue.get('mileage').touched )">
+            <small *ngIf="(formValue.get('mileage')).errors?.required" style="color: red; padding-left: 13px;">Mileage is required</small>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">Engine</ion-label>
+            <ion-input formControlName="engine" ></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('engine').invalid && (formValue.get('engine').dirty ||formValue.get('engine').touched )">
+            <small *ngIf="(formValue.get('engine')).errors?.required" style="color: red; padding-left: 13px;">Engine is required</small>
+          </div>
+        </div>
+
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">Seating Capacity</ion-label>
+            <ion-input formControlName="seating_capacity" type="number"></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('seating_capacity').invalid && (formValue.get('seating_capacity').dirty ||formValue.get('seating_capacity').touched )">
+            <small *ngIf="(formValue.get('seating_capacity')).errors?.required" style="color: red; padding-left: 13px;">Seating Capacity is required</small>
+          </div>
+        </div>
+        <!-- <ion-item color="newcolor">
+          <ion-label position="floating">Fuel Type</ion-label>
+          <ion-input formControlName="fuel_type" ></ion-input>
+        </ion-item> -->
+
+
+        <div class="bottom">
+          <ion-item color="newcolor" >
+            <ion-label>Fuel Type</ion-label>
+            <ion-select placeholder="Select One" formControlName="fuel_type">
+              <ion-select-option value="petrol">Petrol</ion-select-option>
+              <ion-select-option value="diesel">Diesel</ion-select-option>
+              <ion-select-option value="electric">Electric</ion-select-option>
+              <ion-select-option value="cng">CNG</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div *ngIf="formValue.get('fuel_type').invalid && (formValue.get('fuel_type').dirty ||formValue.get('fuel_type').touched )">
+            <small *ngIf="(formValue.get('fuel_type')).errors?.required" style="color: red; padding-left: 13px;">Fuel Type is required</small>
+          </div>
+        </div>
+
+        <!-- <ion-item color="newcolor"> -->
+          <!-- <ion-label position="floating">vehicle Type</ion-label> new or old -->
+          <!-- <ion-input formControlName="car_type" ></ion-input> -->
+        <!-- </ion-item> -->
+
+        <div class="bottom">
+          <ion-item color="newcolor" >
+            <ion-label>Vehicle Type</ion-label>
+            <ion-select placeholder="Select One" formControlName="car_type">
+              <ion-select-option value="new">New</ion-select-option>
+              <ion-select-option value="old">Old</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <div *ngIf="formValue.get('car_type').invalid && (formValue.get('car_type').dirty ||formValue.get('car_type').touched )">
+            <small *ngIf="(formValue.get('car_type')).errors?.required" style="color: red; padding-left: 13px;">Car Type is required</small>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">location</ion-label>
+            <ion-input formControlName="location" ></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('location').invalid && (formValue.get('location').dirty ||formValue.get('location').touched )">
+            <small *ngIf="(formValue.get('location')).errors?.required" style="color: red; padding-left: 13px;">Location is required</small>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">launched year</ion-label>
+            <ion-input formControlName="launched_year" type="number"></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('launched_year').invalid && (formValue.get('launched_year').dirty ||formValue.get('launched_year').touched )">
+            <small *ngIf="(formValue.get('launched_year')).errors?.required" style="color: red; padding-left: 13px;">Launched Year is required</small>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">year_Used</ion-label>
+            <ion-input formControlName="year_used" type="number"></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('year_used').invalid && (formValue.get('year_used').dirty ||formValue.get('year_used').touched )">
+            <small *ngIf="(formValue.get('year_used')).errors?.required" style="color: red; padding-left: 13px;">Year Used is required</small>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <ion-item color="newcolor">
+            <ion-label position="floating">Registration No</ion-label>
+            <ion-input formControlName="registration_number" ></ion-input>
+          </ion-item>
+          <div *ngIf="formValue.get('registration_number').invalid && (formValue.get('registration_number').dirty ||formValue.get('registration_number').touched )">
+            <small *ngIf="(formValue.get('registration_number')).errors?.required" style="color: red; padding-left: 13px;">Registration Number is required</small>
+          </div>
+        </div>
+
+        <!-- 3 image  -->
+
+        <ion-card>
+        <img src={{car.img1}} alt="no Image">
+        </ion-card>
+
+        <ion-item color="newcolor" lines="none">
+          <input id="inputFileToLoad1" type="file" (change)="change1('img1')" />
+        </ion-item>
+
+        <ion-card>
+          <img src={{car.img2}} alt="no Image">
+          </ion-card>
+
+        <ion-item color="newcolor" lines="none">
+          <input id="inputFileToLoad2" type="file" (change)="change2('img2')" />
+        </ion-item>
+
+        <ion-card>
+          <img src={{car.img3}} alt="no Image">
+          </ion-card>
+
+        <ion-item color="newcolor" lines="none">
+          <input id="inputFileToLoad3" type="file" (change)="change3('img3')" />
+        </ion-item>
+
+
+
+
+        <!-- <ion-item color="newcolor"> -->
+          <ion-button color="primary" type="submit" expand="block" style="margin: 19px 5px;" [disabled]="!formValue.valid">Update</ion-button>
+        <!-- </ion-item> -->
+
+
+      </form>
+
+    </div>
+
+
+  </ion-card>
+</ion-content>
+

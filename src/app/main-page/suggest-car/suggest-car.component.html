@@ -1,3 +1,162 @@
-<p>
-  suggest-car works!
-</p>
+
+<ion-content>
+
+
+<ion-modal [isOpen]="showmodal" >
+  <ng-template>
+
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModal()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Suggesting Car</ion-title>
+    </ion-toolbar>
+
+    <ion-content >
+
+      <div class="margin55">
+        <ion-item color="newcolor">
+          <ion-label position="floating">Seating Capacity</ion-label>
+          <ion-input [(ngModel)]="seat"></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="openModal2()" [disabled]=" seat===null || seat==='' ">Next</ion-button>
+      </div>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
+
+<ion-modal [isOpen]="showmodal2" >
+  <ng-template>
+
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModal2()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Suggesting Car</ion-title>
+    </ion-toolbar>
+
+    <ion-content>
+      <div class="margin55">
+        <ion-item color="newcolor" >
+          <ion-label>Fuel Type</ion-label>
+          <ion-select placeholder="Select One" [(ngModel)]="fuel_type">
+            <ion-select-option value="petrol">Petrol</ion-select-option>
+            <ion-select-option value="diesel">Diesel</ion-select-option>
+            <ion-select-option value="electric">Electric</ion-select-option>
+            <ion-select-option value="cng">CNG</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="block" (click)="openModal3()" [disabled]=" fuel_type===null ">Next</ion-button>
+      </div>
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
+
+
+
+<ion-modal [isOpen]="showmodal3" >
+  <ng-template>
+
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModal3()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Suggesting Car</ion-title>
+    </ion-toolbar>
+
+    <ion-content>
+      <div class="margin55">
+        <ion-item color="newcolor" >
+        <ion-label>Vehicle Type</ion-label>
+          <ion-select placeholder="Select One" [(ngModel)]="car_type">
+            <ion-select-option value="new">New</ion-select-option>
+            <ion-select-option value="old">Old</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="block" (click)="openModal4()" [disabled]=" car_type===null ">Next</ion-button>
+      </div>
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
+
+
+<ion-modal [isOpen]="showmodal4" >
+  <ng-template>
+
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModal4()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Suggesting Car</ion-title>
+    </ion-toolbar>
+
+    <ion-content>
+
+      <div class="margin55">
+        <ion-item color="newcolor">
+          <ion-label position="floating">location</ion-label>
+          <ion-input [(ngModel)]="location" ></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="openModal5()" [disabled]=" location===null || location==='' ">Next</ion-button>
+      </div>
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
+
+
+<ion-modal [isOpen]="showmodal5" >
+  <ng-template>
+
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModal5()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Suggesting Car</ion-title>
+    </ion-toolbar>
+
+    <ion-content>
+
+
+        <ng-container  *ngFor="let i of carData ">
+          <ion-card (click)="clickme(i._id)"  *ngIf="confirm(i)">
+            <img src={{i.img1}} />
+            <ion-card-header>
+              <ion-card-subtitle>{{i.model}}</ion-card-subtitle>
+              <ion-card-title>{{i.name}}</ion-card-title>
+              <h4>{{i.price |  currency:'INR'}}</h4>
+              <p>Ex-Showroom in {{i.location}}</p>
+            </ion-card-header>
+          </ion-card>
+      </ng-container>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
+
+
+<div class="margin55">
+
+  <ion-item color="newcolor">
+    <ion-label position="floating">Maximum Budget</ion-label>
+    <ion-input [(ngModel)]="price" type="number"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="openModal()" [disabled]=" price===null || price==='' ">Next</ion-button>
+</div>
+
+</ion-content>

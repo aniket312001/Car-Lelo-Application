@@ -6,12 +6,23 @@
     <ion-refresher-content></ion-refresher-content>
 
   </ion-refresher>
-  <ion-input placeholder="Search User" [(ngModel)]="value" (keyup.enter)="onEnter()"></ion-input>
+  <ion-input placeholder="Search User" [(ngModel)]="value" (keyup.enter)="onEnter()" ></ion-input>
 
   <ion-list>
-    <ion-item *ngFor="let i of user"  (click)="clickme(i.userId)">
-      {{i.username}}
-    </ion-item>
+
+    <ng-container *ngFor="let i of user"  >
+      <ion-item *ngIf="confirm(i.username)"  (click)="clickme(i.userId)" >
+
+        <ion-avatar slot="start">
+          <img src={{i.imageUrl}} onerror="this.src='../../assets/76729750.jpg';this.onerror='';">
+        </ion-avatar>
+
+        <ion-label>{{i.username}}</ion-label>
+
+      </ion-item>
+    </ng-container>
   </ion-list>
+
+
 
 </ion-content>

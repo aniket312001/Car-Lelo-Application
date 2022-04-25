@@ -23,7 +23,7 @@
       <h4>{{car.price |  currency:'INR'}}</h4>
       <p>Ex-Showroom in {{car.location}}</p>
       <ion-button expand="block" fill="outline" (click)="clickme(car.userId)"  *ngIf="showChatBtn" >Chat</ion-button>
-      <ion-button expand="block" fill="outline"  *ngIf="! showChatBtn" >Update</ion-button>
+      <ion-button expand="block" fill="outline"  *ngIf="! showChatBtn" [routerLink]="['/','main-page','update',car._id]" >Update</ion-button>
     </ion-card-header>
 
   </ion-card>

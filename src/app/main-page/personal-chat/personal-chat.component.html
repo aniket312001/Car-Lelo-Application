@@ -12,7 +12,28 @@
         <ion-back-button defaultHref=""></ion-back-button>
 
       </ion-buttons>
-      <ion-title *ngIf="userData" slot="start">{{userData.username}}</ion-title>
+      <ion-avatar slot="start" *ngIf="userData">
+        <img src={{userData.imageUrl}} onerror="this.src='../../assets/76729750.jpg';this.onerror='';">
+      </ion-avatar>
+      <ion-title *ngIf="userData" >{{userData.username}}</ion-title>
+
+      <ng-container *ngIf="userData">
+
+        <ion-button slot="end"  id="trigger-button" style="--box-shadow:none;--ripple-color: transparent;" ><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+        <ion-popover trigger="trigger-button">
+          <ng-template>
+            <ion-content>
+              <ion-list>
+                <ion-item [routerLink]="['','main-page','profile',userData._id]">profile</ion-item>
+                <ion-item>Clear Chats</ion-item>
+                <ion-item>Block</ion-item>
+              </ion-list>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+      </ng-container>
+
+
     </ion-toolbar>
   </ion-header>
 
@@ -20,6 +41,8 @@
   <!-- <ion-item *ngIf="userData">
     <h1 style="text-align: center;">{{userData.username}}</h1>
   </ion-item> -->
+
+
 
   <div class="chatarea">
     <div *ngFor="let i of data">

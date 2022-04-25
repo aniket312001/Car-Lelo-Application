@@ -19,7 +19,8 @@
 </ion-header>
 
 
-<ion-menu side="start" menuId="first" contentId="main">
+
+<ion-menu  side="start" menuId="first" contentId="main" >
   <ion-header>
     <ion-toolbar color="primary">
       <ion-title>Car Lelo</ion-title>
@@ -62,7 +63,7 @@
 
         <ion-list slot="content">
           <ion-item button (click)="open('used')" >
-            <ion-label>See All Use Car</ion-label>
+            <ion-label>See All Used Car</ion-label>
           </ion-item>
           <ion-item button (click)="open('sell')">
             <ion-label>Sell Your Car</ion-label>
@@ -99,6 +100,9 @@
           </ion-item>
           <ion-item button (click)="open('contact')">
             <ion-label>Contact Us</ion-label>
+          </ion-item>
+          <ion-item button (click)="open('supportUs')">
+            <ion-label>support Us</ion-label>
           </ion-item>
         </ion-list>
       </ion-accordion>

@@ -10,12 +10,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
+import { LocationAccuracy } from '@awesome-cordova-plugins/location-accuracy/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ReactiveFormsModule,HttpClientModule,FormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SocketioService],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SocketioService
+    ,LocationAccuracy
+  ],
   bootstrap: [AppComponent],schemas: [ CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">sell-car</string>
+    <string name="title_activity_main">sell-car</string>
+    <string name="package_name">io.ionic.starter</string>
+    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="server_client_id">532125594546-ddtvglv8qrqplv47olgsmunk0m36inuu.apps.googleusercontent.com</string>
+</resources>

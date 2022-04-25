@@ -7,23 +7,24 @@ import { Injectable } from '@angular/core';
 })
 export class ChatsService {
 
+  mainURL = 'https://sellcar24hr.herokuapp.com/'
   constructor(private http:HttpClient) { }
 
   getChatsByRoomId(id:any):Observable<any>{
-    return this.http.get<any>('http://localhost:3000/api/chat/getpersonalchats/'+id)
+    return this.http.get<any>(`${this.mainURL}api/chat/getpersonalchats/`+id)
   }
 
   addChatByRoomId(data:any):Observable<any>{
-    return this.http.post<any>('http://localhost:3000/api/chat/addpersonalchats/',data)
+    return this.http.post<any>(`${this.mainURL}api/chat/addpersonalchats/`,data)
   }
 
 
   addChatList(data:any):Observable<any>{
-    return this.http.post<any>('http://localhost:3000/api/list/addList',data)
+    return this.http.post<any>(`${this.mainURL}api/list/addList`,data)
   }
 
   getChatList(id:any):Observable<any>{
-    return this.http.get<any>('http://localhost:3000/api/list/getlist/'+id)
+    return this.http.get<any>(`${this.mainURL}api/list/getlist/`+id)
   }
 
 }

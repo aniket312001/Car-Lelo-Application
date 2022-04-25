@@ -24,12 +24,30 @@
 .one-line {
   &:before,
   &:after {
-     background: #a09d9d;
+     background: #030303;
   }
 }
 
 ion-content{
   // --ion-background-color:#e7e9e7;
-  --background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v546batch3-mynt-34-badgewatercolor_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=89288ef4b47127f7f34a5998b50e4470') no-repeat center center / cover;
+  // --background: url("https://cdn.statusqueen.com/mobilewallpaper/thumbnail/widebody_huracan_-202.jpg") no-repeat center center / cover;
+  --background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-IBYGax7wK-Ejts-swZTFR6UEy31FATe7-Q&usqp=CAU') no-repeat center center / cover;
+
+}
+
+
+ion-card{
+  background: transparent;
+  box-shadow: none;
+}
+
+
+
+.margin55{
+  margin: 35px;
+
+  .bottom{
+    margin-bottom: 34px;
+  }
 
 }

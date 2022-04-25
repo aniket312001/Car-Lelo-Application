@@ -1,0 +1,22 @@
+ion-content{
+  // --ion-background-color:#e4e2d0;
+
+  --background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzVAFPw9PtIbrskXIf3wRHEocZM9RkLwdXFw&usqp=CAU') no-repeat center center / cover;
+}
+
+
+ion-card{
+
+  background: transparent !important;
+  box-shadow: none;
+}
+
+
+.margin55{
+  margin: 45px;
+
+  .bottom{
+    margin-bottom: 34px;
+  }
+
+}

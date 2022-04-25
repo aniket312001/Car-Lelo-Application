@@ -1,3 +1,6 @@
+import { UpdateCarComponent } from './update-car/update-car.component';
+import { AnotherUserProfileComponent } from './another-user-profile/another-user-profile.component';
+import { PaymentGateWayComponent } from './payment-gate-way/payment-gate-way.component';
 import { TermAndConditionsComponent } from './term-and-conditions/term-and-conditions.component';
 import { CareerComponent } from './career/career.component';
 import { FeedbackComponent } from './feedback/feedback.component';
@@ -42,6 +45,7 @@ const routes: Routes = [
       {path:'emi',component:EmiCalculatorComponent},
       {path:'compare',component:CompareCarComponent},
       {path:'sell',component:SellComponent},
+      {path:'update/:id',component:UpdateCarComponent},
       {path:'search/:name',component:SearchCarComponent},
       {path:'searchbyprice',component:SearchByPriceComponent},
       {path:'searchbymap',component:SearchByMapComponent},
@@ -63,10 +67,13 @@ const routes: Routes = [
       {path:'feedback',component:FeedbackComponent},
       {path:'term_and_condition',component:TermAndConditionsComponent},
 
+      {path:'supportUs',component:PaymentGateWayComponent},
+
       {path:'',redirectTo:'car',pathMatch:'full'}
     ]
   },
   {path:'chat/:id',component:PersonalChatComponent},
+  {path:'profile/:id',component:AnotherUserProfileComponent},
   {path:'search',component:SearchbarComponent}
 
 ];
